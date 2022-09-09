@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "314195663838",
+    "project_id": "mymapproject-361811",
+    "storage_bucket": "mymapproject-361811.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314195663838:android:65704a34fa6990a4e9db4f",
+        "android_client_info": {
+          "package_name": "com.example.female_safety_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314195663838-b6uel5h0rv5u20udb53rt9m7e1inau9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCizF_tHSHVM1Gbd7n_YlHj_OhLUAINrRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314195663838-b6uel5h0rv5u20udb53rt9m7e1inau9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
