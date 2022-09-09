@@ -32,9 +32,21 @@ class _MyAppState extends State<MyApp> {
       ),
       body: Column(
         children: [
-          TextButton(onPressed: () {}, child: Text('Add My Location')),
-          TextButton(onPressed: () {}, child: Text('Enable Live Location')),
-          TextButton(onPressed: () {}, child: Text('Stop Live Location')),
+          TextButton(
+              onPressed: () {
+                _getLocation();
+              },
+              child: Text('Add My Location')),
+          TextButton(
+              onPressed: () {
+                _listenLocation();
+              },
+              child: Text('Enable Live Location')),
+          TextButton(
+              onPressed: () {
+                _stopListening();
+              },
+              child: Text('Stop Live Location')),
           Expanded(
               child: StreamBuilder(
             stream:
@@ -76,5 +88,41 @@ class _MyAppState extends State<MyApp> {
         ],
       ),
     );
+  }
+
+  _getLocation() async {
+    try {
+      final loc.LocationData _locationResult = await location.getLocation();
+      await FirebaseFirestore.instance.collection('location').doc('user1').set({
+        'latitude': _locationResult.latitude,
+        'longitude': _locationResult.longitude,
+        "name": "john"
+      }, SetOptions(merge: true));
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> _listenLocation() async {
+    _locationSubscription = location.onLocationChanged.handleError((onError) {
+      print(onError);
+      _locationSubscription?.cancel();
+      setState(() {
+        _locationSubscription = null;
+      });
+    }).listen((loc.LocationData currentLocation) async {
+      await FirebaseFirestore.instance.collection('location').doc('user1').set({
+        'latitude': currentLocation.latitude,
+        'longitude': currentLocation.longitude,
+        "name": "john"
+      }, SetOptions(merge: true));
+    }) as StreamSubscription<loc.Location>?;
+  }
+
+  _stopListening() {
+    _locationSubscription?.cancel();
+    setState(() {
+      _locationSubscription = null;
+    });
   }
 }
