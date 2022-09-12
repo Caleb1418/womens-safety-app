@@ -41,6 +41,15 @@ dependencies:
   cloud_firestore: ^2.5.1
   firebase_core: ^1.6.0
   permission_handler: ^8.1.4+2
+  flutter_native_splash: ^2.2.9
+
+
+flutter_native_splash:
+  color: "#FFD32E"
+  image: "assets/icons/logo.png"
+
+
+
 
 dev_dependencies:
   flutter_test:
