@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart' as loc;
 import 'package:permission_handler/permission_handler.dart';
 
+import 'myMap.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -79,8 +81,9 @@ class _MyAppState extends State<MyApp> {
                       trailing: IconButton(
                         icon: Icon(Icons.directions),
                         onPressed: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => MyApp()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  MyMap(snapshot.data!.docs[index].id)));
                         },
                       ),
                     );
