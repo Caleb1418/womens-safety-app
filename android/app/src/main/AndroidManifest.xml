@@ -13,9 +13,9 @@
 
     
    <application
-        android:label="female_safety_app"
+        android:label="Eyes"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
 
             <meta-data android:name="com.google.android.geo.API_KEY"
                 android:value="AIzaSyCizF_tHSHVM1Gbd7n_YlHj_OhLUAINrRg"/>
